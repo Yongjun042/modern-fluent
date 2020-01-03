@@ -1,0 +1,9 @@
+<head>
+      <!-- Title, description, author -->
+  {%- capture _page_title -%}
+  {%- if page.title -%}{{- page.title | append: ' | ' -}}{%- endif -%}
+  {{- site.title | default: "Untitled Website" -}}
+  {%- if site.subtitle -%}{{- site.subtitle | prepend: ' - ' -}}{%- endif -%}
+{%- endcapture -%}
+    <link rel="stylesheet" href="{{- 'assets/css/main.css' | relative_url -}}" />
+</head>
