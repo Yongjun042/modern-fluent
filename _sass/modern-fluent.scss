@@ -8,3 +8,40 @@
     footer{
         font-size:10px;
     }
+
+
+nav{
+    $carousel-width: 100px;
+    $carousel-height: 50px;
+    
+      position: relative;
+      width: $carousel-width;
+      height: $carousel-height;
+
+    
+    .window {
+      position: relative;
+      background: #222;
+    }
+    
+    #carousel {
+      width: 10000px;
+      position: relative;
+      transform: translateX(0px);
+      left: -$carousel-width;
+    }
+    
+    .slide {
+      height: $carousel-height;
+      width: $carousel-width;
+      cursor: pointer;
+      float: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .transition {
+      transition: .7s;
+    }
+}

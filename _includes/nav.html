@@ -1,0 +1,16 @@
+<nav>
+  <div class="window">
+    <div id="carousel">
+      {% assign links = site.data.nav %}
+      {% for link in links %}
+      {% if page.url contains link.url %}
+      {% assign class = 'active' %}
+      {% endif %}
+      <span class="slide" , id="b1">
+        <a href="{{ site.url }}{{ site.baseurl }}{{ link.url }}">
+          {{link.title}}</a>
+      </span>
+      {%endfor%}
+    </div>
+  </div>
+</nav>
