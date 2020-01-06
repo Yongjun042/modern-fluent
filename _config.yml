@@ -24,3 +24,10 @@ email: your-email@example.com
 #avatar: assets/images/avatar.jpg
 #sass:
 #    sass_dir: _sass
+
+include: [_post]
+
+plugins: [jekyll-paginate]
+
+paginate: 6
+paginate_path: /page/:num/
