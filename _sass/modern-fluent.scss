@@ -21,14 +21,13 @@ nav{
     
     .window {
       position: relative;
-      background: #222;
     }
     
     #carousel {
+      display: flex;
       width: 10000px;
       position: relative;
       transform: translateX(0px);
-      left: -$carousel-width;
     }
     
     .slide {
@@ -36,7 +35,6 @@ nav{
       width: $carousel-width;
       cursor: pointer;
       float: left;
-      display: flex;
       flex-direction: column;
       justify-content: center;
     }

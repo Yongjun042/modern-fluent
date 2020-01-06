@@ -3,10 +3,7 @@ var window = document.getElementById('window'),
   prev = document.getElementById('prev'),
   next = document.getElementById('next');
 
-
-
 function slide(wrapper, items, prev, next) {
-  console.log("slide");
   var posX1 = 0,
     posX2 = 0,
     posInitial,
@@ -20,7 +17,12 @@ function slide(wrapper, items, prev, next) {
     cloneFirst = firstSlide.cloneNode(true),
     cloneLast = lastSlide.cloneNode(true);
 
-  items.insertBefore(cloneLast, firstSlide);
+
+
+
+  initOrder();
+
+
   //wrapper.classList.add('loaded');
   // Mouse events
   items.onmousedown = dragStart;
@@ -34,7 +36,6 @@ function slide(wrapper, items, prev, next) {
   //items.addEventListener('transitionend', checkIndex);
 
   function dragStart(e) {
-    console.log("dragStart");
     e = e || window.event;
     e.preventDefault();
     posInitial = e.screenX;
@@ -59,15 +60,15 @@ function slide(wrapper, items, prev, next) {
       posX1 = e.screenX;
     }
     var itemsX = Number(getTranslateX(items));
-    posX2 =  itemsX - posX2;
-    items.style.transform = "translateX("+ posX2 + "px)";
+    posX2 = itemsX - posX2;
+    items.style.transform = "translateX(" + posX2 + "px)";
   }
 
   function dragEnd(e) {
     if (e.type == 'touchend') {
       posFinal = e.touches[0].screenX;
     }
-    else{
+    else {
       posFinal = e.screenX;
     }
     if (posFinal - posInitial < -threshold) {
@@ -80,24 +81,19 @@ function slide(wrapper, items, prev, next) {
 
     document.onmouseup = null;
     document.onmousemove = null;
-    console.log("dragEnd");
   }
 
   function shiftSlide(dir) {
     items.classList.add('transition');
 
     if (items.classList.contains('transition')) {
-      items.style.transform = "translateX("+(dir * slideSize)+"px)";
+      items.style.transform = "translateX(" + (dir * slideSize) + "px)";
       if (dir == 1) {
-        console.log("dir1");
-        items.removeChild(slides[slidesLength]);
-        items.insertBefore(slides[slidesLength -1].cloneNode(true), slides[0]);
+        changeOrder(1);
       } else if (dir == -1) {
-        items.appendChild(slides[1].cloneNode(true));
-        items.removeChild(slides[0]);
+        changeOrder(-1);
       }
-      else{
-
+      else {
       }
       items.classList.remove('transition');
       items.style.transform = "translateX(0px)";
@@ -124,6 +120,45 @@ function slide(wrapper, items, prev, next) {
       matrixValue = matrixCopy.split(/\s*,\s*/);
     }
     return matrixValue[4];
+  }
+
+  function initOrder() {
+    var now = window.location.href;
+    var i, count = 0;
+    for (i = 0; i < slidesLength; i++) {
+      slides[i].style.order = i;
+    }
+    for (i = 0; i < slidesLength; i++) {
+      if (now == slides[i].getElementsByTagName('a')[0].getAttribute('href')) {
+        break;
+      }
+      count = count + 1;
+    }
+    changeOrder(-count);
+  }
+
+  function changeOrder(dir) {
+    //css order로 바꾸기
+    var order = [];
+    var i;
+    for (i = 0; i < slidesLength; i++) {
+      order[i] = Number(slides[i].style.getPropertyValue('order'));
+    }
+    for (i = 0; i < slidesLength; i++) {
+      if (dir > 0) {
+        order[i] = order[i] + dir - slidesLength;
+      }
+      else {
+        order[i] = order[i] + dir;
+      }
+      if (order[i] < 0) {
+        order[i] = order[i] + slidesLength;
+      }
+    }
+    console.log(order);
+    for (i = 0; i < slidesLength; i++) {
+      slides[i].style.order = order[i];
+    }
   }
 }
 slide(window, carousel, prev, next);
