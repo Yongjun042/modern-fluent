@@ -1,9 +1,7 @@
 var window = document.getElementById('window'),
-  carousel = document.getElementById('carousel'),
-  prev = document.getElementById('prev'),
-  next = document.getElementById('next');
+  carousel = document.getElementById('carousel');
 
-function slide(wrapper, items, prev, next) {
+function slide(wrapper, items) {
   var posX1 = 0,
     posX2 = 0,
     posInitial,
@@ -11,19 +9,10 @@ function slide(wrapper, items, prev, next) {
     threshold = 100,
     slides = items.getElementsByClassName('slide'),
     slidesLength = slides.length,
-    slideSize = items.getElementsByClassName('slide')[0].offsetWidth,
-    firstSlide = slides[0],
-    lastSlide = slides[slidesLength - 1],
-    cloneFirst = firstSlide.cloneNode(true),
-    cloneLast = lastSlide.cloneNode(true);
-
-
-
+    slideSize = items.getElementsByClassName('slide')[0].offsetWidth;
 
   initOrder();
 
-
-  //wrapper.classList.add('loaded');
   // Mouse events
   items.onmousedown = dragStart;
 
@@ -134,7 +123,9 @@ function slide(wrapper, items, prev, next) {
       }
       count = count + 1;
     }
+    slides[count].getElementsByTagName('a')[0].style.color = 'darkorange';
     changeOrder(-count);
+
   }
 
   function changeOrder(dir) {
@@ -161,6 +152,6 @@ function slide(wrapper, items, prev, next) {
     }
   }
 }
-slide(window, carousel, prev, next);
+slide(window, carousel);
 
 
