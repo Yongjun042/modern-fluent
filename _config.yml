@@ -27,7 +27,8 @@ email: your-email@example.com
 
 include: [_post]
 
-plugins: [jekyll-paginate]
+plugins: [jekyll-paginate, 
+          jekyll-sitemap]
 gem: [jekyll-admin]
 
 paginate: 6
