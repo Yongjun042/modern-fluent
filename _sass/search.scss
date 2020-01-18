@@ -1,3 +1,14 @@
-.serach{
+#search-container{
     margin: auto;
+    input{
+        width: 100%;
+        height: auto;
+        line-height : normal;
+        padding: .8em .5em;
+        border: 1px solid #999;
+        border-radius: 0;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
 }
