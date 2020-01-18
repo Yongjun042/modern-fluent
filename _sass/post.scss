@@ -1,3 +1,26 @@
 .post{
     margin: auto;
+    blockquote{
+        background-color: lightgray;
+        padding: 12px;
+    }
+    pre, code{
+        @import url("//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-full.css");
+        background-color: lightgray;
+        font-family: 'D2Coding', monospace;
+    }
+    pre{
+        overflow: scroll;
+    }
+    table{
+        margin: 4px;
+        border-collapse: collapse;
+        td {
+            padding: 10px;
+            text-align: center;
+          }
+          tbody tr:nth-child(2n), th {
+            background-color: lightgrey;
+          }
+    }
 }

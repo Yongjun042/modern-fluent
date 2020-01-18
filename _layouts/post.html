@@ -12,8 +12,10 @@ layout: default
     <a href="{{site.baseurl}}/categories/#{{category|slugize}}">{{category}}</a>
     {% unless forloop.last %},&nbsp;{% endunless %}
     {% endfor %}
-  </div>    
+  </div>
+  <div class ="post">
 {{ content }}
+  </div>
 <div class="Previous-next">
     {% if page.previous.url %}
       <a class="previous" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
