@@ -1,0 +1,50 @@
+.home{
+  margin: 12px;
+  text-align: left;
+  .post{
+    h2{
+      margin-bottom: 0px; 
+    }
+    .dc{
+      display: flex;
+      flex-direction: row;
+      .date{
+        color: grey;
+        float: right;
+      }
+      .content{
+        flex: 1;
+        float: right;
+        color:black;
+    }
+  }
+  }
+
+   
+  .pagination {
+    margin: 12px 0px 8px 0px;
+    text-align: center;
+    .pageno, em,a, span{
+      width: 28px;
+      height: 32px;
+      display: inline-block;
+      margin: 0px 8px 0px 8px;
+      padding: 0px 8px 0px 8px;
+    }
+    img{
+      vertical-align: middle;
+      width: 20px;
+      height: 20px;
+    }
+    .underline{
+      display: inline-block;
+      width: 28px;
+      margin: 0px 8px 0px 8px;
+      border-bottom: 4px solid var(--accent-color);
+    }
+    a:hover {
+          background-color: #f1f1f1;
+          color: #333;
+    }
+  }
+}

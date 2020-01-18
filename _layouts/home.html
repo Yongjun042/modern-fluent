@@ -2,29 +2,32 @@
 title: Home
 layout: default
 ---
-
+<div class='home'>
 <!-- This loops through the paginated posts -->
 {% for post in paginator.posts %}
-  <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-  <p class="author">
-    <span class="date">{{ post.date }}</span>
-  </p>
-  <div class="content">
-    {{ post.content }}
+<a href="{{ post.url }}"> 
+  <div class='post'>
+    <h2>{{ post.title }}</h2>
+    <div class='dc'>
+    <div class="content">
+      {{ post.excerpt | strip_html | strip_newlines | truncatewords: 45 }}
+    </div>
+    <div class="date">{{ post.date | date: '%F'}}<br>{{ post.date | date: '%Z'}}</div>
   </div>
+  </div></a>
 {% endfor %}
 
 {% if paginator.total_pages > 1 %}
 <div class="pagination">
   {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"><img src="/assets/icons/left arrow.svg" alt="Preview"></a>
   {% else %}
-    <span>&laquo; Prev</span>
+  
   {% endif %}
 
   {% for page in (1..paginator.total_pages) %}
     {% if page == paginator.page %}
-      <em>{{ page }}</em>
+      <div class='underline'>{{ page }}</div>
     {% elsif page == 1 %}
       <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
     {% else %}
@@ -33,9 +36,10 @@ layout: default
   {% endfor %}
 
   {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}"> <img src="/assets/icons/right arrow.svg" alt="Next"></a>
   {% else %}
-    <span>Next &raquo;</span>
+    
   {% endif %}
 </div>
 {% endif %}
+</div>

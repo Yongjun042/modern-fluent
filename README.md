@@ -49,4 +49,4 @@ To add a custom directory to your theme-gem, please edit the regexp in `modern-f
 ## License
 
 The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
+right arrow Icons made by Google (CC BY 3.0)

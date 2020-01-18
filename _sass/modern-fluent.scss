@@ -1,64 +1,23 @@
+
+:root{
+  --accent-color: hsl(39, 100%, 50%);
+  --accent-color-light:  hsl(39, 100%, 60%);
+  --accent-color-dark: hsl(39, 100%, 40%);
+}
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
-    body{
-        font-family:"Segoe UI", "Noto Sans KR", sans-serif !important;
-    }
-    header{
-        font-size: 40px;
-    }
-    footer{
-        font-size:10px;
-    }
+body{
+  font-family:"Segoe UI", "Noto Sans KR", sans-serif !important;
+  max-width:900px;
+  margin: 0 auto;
 
+  a:link {text-decoration: none; color: var(--accent-color);}
+a:visited {text-decoration: none; color: var(--accent-color-dark);}
+a:active {text-decoration: none; color: var(--accent-color);}
+a:hover {text-decoration: underline; color: var(--accent-color-light);}
+}
+@import "about","categories","footer","header","page","post","search", "home";    
 
-nav{
-    $carousel-width: 100px;
-    $carousel-height: 50px;
     
-      position: relative;
-      width: $carousel-width;
-      height: $carousel-height;
-    
-    #carousel {
-      display: flex;
-      width: 10000px;
-      position: relative;
-      transform: translateX(0px);
-      .slide {
-        height: $carousel-height;
-        width: $carousel-width;
-        cursor: pointer;
-        float: left;
-        flex-direction: column;
-        justify-content: center;
-        a{
-          text-decoration:none;
-          color: black;
-          width:auto;
-          margin: auto;
-        }
-      }
-    }
-    .transition {
-      transition: .7s;
-    }
-}
 
-.pagination a, .pagination span {
-  padding: 7px 18px;
-  border: 1px solid #eee;
-  margin-left: -2px;
-  margin-right: -2px;
-  background-color: #ffffff;
-  display: inline-block;
-}
 
-.pagination a {    
-  &:hover {
-      background-color: #f1f1f1;
-      color: #333;
-  }
-}
 
-.pagination {
-  text-align: center;
-}
