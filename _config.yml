@@ -20,8 +20,9 @@ description: >- # this means to ignore newlines until "baseurl:"
   HTML5 UP's sleek, responsive site template Prologue.
 author: Your Incredible Name
 email: your-email@example.com
+github: Your github address
+profilepic: assets/images/profile.png
 #baseurl: "/modern-fluent"
-#avatar: assets/images/avatar.jpg
 #sass:
 #    sass_dir: _sass
 

@@ -1,5 +1,24 @@
 ---
 layout: default
 ---
-
+<div class ="about">
+<h1>About</h1>
+<table>
+    <tr>
+        <td rowspan="2"><img src = "{{site.profilepic | relative_url -}}"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>{{site.author}}</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>{{site.email}}</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>{{site.github}}</td>
+    </tr>
+</table>
 {{ content }}
+</div>
