@@ -28,9 +28,8 @@ profilepic: assets/images/profile.png
 
 include: [_post]
 
-plugins: [jekyll-paginate, 
-          jekyll-sitemap]
-gem: [jekyll-admin]
+plugins: - jekyll-paginate 
+         - jekyll-sitemap
 
 paginate: 6
 paginate_path: /page/:num/
