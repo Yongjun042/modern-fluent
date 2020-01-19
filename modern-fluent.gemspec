@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "modern-fluent"
-  spec.version       = "0.1.0"
+  spec.version       = "0.1.1"
   spec.authors       = ["Yongjun"]
   spec.email         = ["24871665+Yongjun042@users.noreply.github.com"]
 
